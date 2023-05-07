@@ -1,0 +1,23 @@
+form {
+    font-size: 20px;
+    box-sizing: border-box;
+    padding-top: 12px;
+    height: 85px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    background-color: hsl(112, 60%, 80%);
+    font-weight: bold;
+    font-family: arial, serif;
+    border: 1px solid black;
+    overflow: hidden;
+    border-radius: 20%;
+}
+
+
+
+
+
+.radiobutton {
+    height: 290px;
+}
