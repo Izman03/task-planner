@@ -118,9 +118,9 @@ body {margin:0;font-family:Arial}
   color: darkorange;
 }
 
-
-
-
+#description {
+  height: 100px; /* or any other value you want */
+}
 
 .intro h2 {
   color: purple;
