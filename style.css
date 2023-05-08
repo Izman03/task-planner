@@ -120,6 +120,7 @@ body {margin:0;font-family:Arial}
 
 textarea {
   height: 200px;
+  width: 200px;
 }
 
 .intro h2 {
