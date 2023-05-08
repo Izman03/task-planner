@@ -242,7 +242,6 @@ button:hover {
 
 /* SUGGESTIONS... FOR COMMENT!
 Code below [commented out] is under construction... Changes the general style and font size of a web page as it is resized. Screen width ≤600px = DARK theme applied. Screen size >600px = LIGHT theme applied.
-
 @media screen and (min-width: 600px) {  
     :root {
       
@@ -263,3 +262,37 @@ Code below [commented out] is under construction... Changes the general style an
     }
   }
   */
+
+  /* [SOME SUGGESTED TASK LAYOUT SCRIPT] */ 
+
+/* Style task cards */
+.card-body {
+    border-color: rgb(254, 243, 227);
+    background-color: rgb(254, 243, 227);
+  }
+  
+  .card-title {
+    color: darkorange;
+  }
+  
+  /* FOOTER SCRIPT */
+  /* Position footer as fixed, at bottom */
+  footer {
+    position: fixed;
+    bottom: 0px;
+  }
+  /* Style copyright text */
+  #copyright {
+    font-size: 10px;
+    color: maroon;
+   }
+  
+  /* Style socials icon bar links */
+  .icon-bar a {
+    display: inline;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 10px;
+  }
