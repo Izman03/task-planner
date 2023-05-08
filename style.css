@@ -118,8 +118,8 @@ body {margin:0;font-family:Arial}
   color: darkorange;
 }
 
-#description {
-  height: 100px; /* or any other value you want */
+textarea {
+  height: 200px;
 }
 
 .intro h2 {
