@@ -1,294 +1,147 @@
-/* CSS SCRIPT FOR NAVBAR + FOOTER */
+/* Add Task Form Styling */
+.card-header {
+  background-color: #f8f9fa; /* Background color for the card header */
+  font-weight: "ariel"; /* Bold font weight for the card header */
+}
 
-body {margin:0;font-family:Arial}
+/* Task Card Styling */
+.card {
+  margin-bottom: 20px; /* Bottom margin for each task card */
+  color: bisque;
+}
 
-/* TOP NAVBAR */
-
-/* Add background color to navbar */
+/* Navbar Styling */
 .topnav {
-  background-color: midnightblue;
-  overflow: hidden;
+  overflow: hidden; /* Ensures the navbar contents stay within the navbar */
+  background-color: navy; /* Background color for the navbar */
 }
-/* Style links in navbar */
+
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+  float: left; /* Float the navigation links to the left */
+  color: #f2f2f2; /* Text color for the navigation links */
+  text-align: center; /* Center align the navigation links */
+  padding: 14px 16px; /* Padding for the navigation links */
+  text-decoration: none; /* Remove underline from the navigation links */
+  font-size: 17px; /* Font size for the navigation links */
 }
-/* Add an active class to highlight CURRENT PAGE */
-.active {
-  background-color: purple;
-  color: white;
-}
-/* Hide link that should open and close topnav on small screens */
-.topnav .icon {
-  display: none;
-}
-/* Dropdown container [to position  dropdown content] */
+
 .dropdown {
-  float: left;
-  overflow: hidden;
+  float: left; /* Float the dropdown container to the left */
+  overflow: hidden; /* Ensures the dropdown contents stay within the container */
 }
-/* Style dropdown button to fit inside topnav */
+
 .dropdown .dropbtn {
-  font-size: 17px;    
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+  font-size: 17px; /* Font size for the dropdown button */
+  border: none; /* Remove border from the dropdown button */
+  outline: none; /* Remove outline from the dropdown button */
+  color: #f2f2f2; /* Text color for the dropdown button */
+  padding: 14px 16px; /* Padding for the dropdown button */
+  background-color: inherit; /* Inherit background color from parent element */
+  font-family: inherit; /* Inherit font family from parent element */
+  margin: 0; /* Remove margin from the dropdown button */
 }
-/* Style dropdown content [hidden by default] */
+
+.topnav a:hover,
+.dropdown:hover .dropbtn {
+  background-color: lightskyblue; /* Background color when hovering over navigation links or dropdown button */
+  color: white; /* Text color when hovering over navigation links or dropdown button */
+}
+
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  display: none; /* Hide the dropdown content by default */
+  position: absolute; /* Position the dropdown content */
+  background-color: #f9f9f9; /* Background color for the dropdown content */
+  min-width: 160px; /* Minimum width for the dropdown content */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Box shadow for the dropdown content */
+  z-index: 1; /* Ensure the dropdown content appears above other elements */
 }
-/* Style links inside dropdown */
+
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+  float: none; /* Remove float from the dropdown content links */
+  color: black; /* Text color for the dropdown content links */
+  padding: 12px 16px; /* Padding for the dropdown content links */
+  text-decoration: none; /* Remove underline from the dropdown content links */
+  display: block; /* Display the dropdown content links as block elements */
+  text-align: left; /* Left align the dropdown content links */
 }
-/* Add dark background on hover for topnav links and dropdown button */
-.topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
-  color: white;
+
+.topnav .dropdown-content a:hover {
+  background-color: #ddd; /* Background color when hovering over dropdown content links */
+  color: black; /* Text color when hovering over dropdown content links */
 }
-/* Show dropdown menu on hover over dropdown button */
+
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: block; /* Display the dropdown content when hovering over the dropdown container */
 }
-/* Add grey background on hover to dropdown LINKS */
-.dropdown-content a:hover {
-  background-color: #ddd;
-  color: black;
+
+.topnav .icon {
+  display: none; /* Hide the responsive menu icon by default */
 }
-/* When screen <600 pixels wide hide all links except for "Home". Show link that contains should open and close the topnav (.icon) */
+
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
-    display: none;
+  .topnav a:not(:first-child),
+  .dropdown .dropbtn {
+    display: none; /* Hide the navigation links and dropdown button on small screens */
   }
   .topnav a.icon {
-    float: right;
-    display: block;
+    float: right; /* Float the responsive menu icon to the right */
+    display: block; /* Display the responsive menu icon as a block element */
   }
 }
 
-/* The 'responsive' class is added to topnav with JavaScript when the user clicks on the icon [makes topnav look good on small screens (displays links vertically instead of horizontally)] */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative; /* Change the position to relative for the responsive navbar */
+  }
   .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: absolute; /* Position the responsive menu icon absolutely */
+    right: 0; /* Align the responsive menu icon to the right */
+    top: 0; /* Align the responsive menu icon to the top */
   }
   .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
+    float: none; /* Remove float from the navigation links */
+    display: block; /* Display the navigation links as block elements */
+    text-align: left; /* Left align the navigation links */
   }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown {
+    float: none; /* Remove float from the dropdown container */
+  }
+  .topnav.responsive .dropdown-content {
+    position: relative; /* Change the position to relative for the dropdown content */
+  }
   .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
+    display: block; /* Display the dropdown button as a block element */
+    width: 100%; /* Set the width of the dropdown button to 100% */
+    text-align: left; /* Left align the dropdown button */
   }
+}
+
+.task-layout button[type="submit"] {
+  display: block;
+  margin: 0 auto; /* Center the button horizontally by setting left and right margins to "auto" */
 }
 
 #navbar-logo {
-  text-justify: right;
-  text-align: center;
-  padding: 4px 0px 0px 8px;
-  font-size: 20px;
-  font-weight: bold;
-  color: darkorange;
+  color: orange; /* Text color for the navbar logo */
+  margin: 14px auto; /* Center the navbar logo horizontally by setting left and right margins to "auto" */
+  font-size: 20px; /* Font size for the navbar logo */
+  font-weight: bold; /* Bold font weight for the navbar logo */
+  display: block; /* Display the navbar logo as a block element */
+  text-align: center; /* Center align the navbar logo */
+  width: 100px;
 }
 
-.intro h2 {
-  color: purple;
+/* General Styling */
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 200, 124) 0%,
+    rgb(252, 251, 121) 90%
+  );
+  font-family: Arial, sans-serif; /* Font family for the body text */
+  padding-top: 20px; /* Top padding for the body */
 }
 
-
-/* [MAIN BODY SCRIPT] */ 
-
-
-/* FOOTER SCRIPT */
-
-/* Position footer fixed, at bottom */
-footer {
-    position: fixed;
-    bottom: 0px;
+.container {
+  max-width: 600px; /* Maximum width for the container */
 }
-/* Style copyright text */
-#copyright {
-    font-size: 10px;
-    color: maroon;
- }
-
-/* Style the socials icon bar links */
-.icon-bar a {
-    display: inline;
-    text-align: center;
-    padding: 16px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 10px;
-  }
-  
-/* Style the social media icons with color, if you want */
-.icon-bar a:hover {
-    background-color: #000;
-  }
-  
-.facebook {
-    background: #3B5998;
-    color: white;
-  }
-  
-.twitter {
-    background: #55ACEE;
-    color: white;
-  }
-  
-.google {
-    background: #dd4b39;
-    color: white;
-  }
-  
-.linkedin {
-    background: #007bb5;
-    color: white;
-  }
-  
-.youtube {
-    background: #bb0000;
-    color: white;
-  } 
-
-/*Task layout Izmael Holmes*/
-
-.task-layout {
-  text-align: center;
-}
-
-.task-layout h1 {
-  font-size: 60px;
-  color: orange;
-}
-
-#task-priority {
-  font-size: 18px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  width: 50%;
-  margin-top: 2rem;
-}
-
-label {
-  margin-top: 1rem;
-}
-
-input[type="text"],
-input[type="date"],
-select {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-
-button {
-  margin-top: 20px;
-  margin-bottom: 2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  background-color: #ff8c00;
-  color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: navy;
-}
-
-
-
-
-
-/* SUGGESTIONS... FOR COMMENT!
-Code below [commented out] is under construction... Changes the general style and font size of a web page as it is resized. Screen width ≤600px = DARK theme applied. Screen size >600px = LIGHT theme applied.
-@media screen and (min-width: 600px) {  
-    :root {
-      
-      --body-background: lightblue; 
-      --inner-margin: 6px;
-      --body-text-color: black;
-      --font-size: 18px;
-    }
-  }
-   
-@media screen and (max-width: 600px) {
-    :root {
-     
-      --body-background: #000; 
-      --inner-margin: 12px;
-      --body-text-color: #fff;
-      --font-size: 12px;
-    }
-  }
-  */
-
-  /* [SOME SUGGESTED TASK LAYOUT SCRIPT] */ 
-
-/* Style task cards */
-.card-body {
-    border-color: rgb(254, 243, 227);
-    background-color: rgb(254, 243, 227);
-  }
-  
-  .card-title {
-    color: darkorange;
-  }
-  
-  /* FOOTER SCRIPT */
-  /* Position footer as fixed, at bottom */
-  footer {
-    position: fixed;
-    bottom: 0px;
-  }
-  /* Style copyright text */
-  #copyright {
-    font-size: 10px;
-    color: maroon;
-   }
-  
-  /* Style socials icon bar links */
-  .icon-bar a {
-    display: inline;
-    text-align: center;
-    padding: 16px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 10px;
-  }

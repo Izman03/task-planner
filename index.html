@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- VIEWPORT TAG TO CONTROL WIDTH & SCALING ON ALL DEVICES -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- LINK TAG FOR CSS -->
-    <link href="style.css" rel="stylesheet">
-    <!-- LINK TAG FOR BOOTSRAP'S CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-    <!-- LOAD ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>TaskPlanner+</title>
   </head>
 
@@ -21,10 +22,10 @@
     <!-- NAVBAR -->
     <div class="topnav" id="myTopnav">
       <a href="#" class="active"><i class="fa fa-fw fa-home"></i></a>
-      <!-- DROPDOWN LIST -->
       <div class="dropdown">
-        <button class="dropbtn">Tasks 
-        <i class="fa fa-caret-down"></i>
+        <button class="dropbtn">
+          Tasks
+          <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
           <a href="#">Add task</a>
@@ -32,184 +33,88 @@
           <a href="#">Reports</a>
           <a href="#">Import</a>
         </div>
-      </div>    
-        <a href="#search"><i class="fa fa-fw fa-search"></i> Search</a> 
-        <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
-        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-        <a href="javascript:void(0);" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a>
-        <p id="navbar-logo">TaskPlanner✜</p>
       </div>
-
-      <!-- *** AM NOT SURE WHY THE FOLLOWING CSS SCRIPT DOESN'T WORK WHEN IT IS MOVED TO THE STYLESHEET! any ideas? *** -->
-      <script>
-      function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
-      }
-      </script>
-<!--TASK-LAYOUT-by-Izmael-Holmes-->
-<div class="task-layout">
-<h1>Add Task</h1>
-    
-<form>
-  <label for="task-name">Task name:</label>
-  <input type="text" id="task-name" name="task-name" required>
-  
-  <label for="description">Description:</label>
-  <input type="text" id="description" name="description" required>
-
-  <label for="task-date">Due date:</label>
-  <input type="date" id="task-date" name="task-date" required>
-
-  <label for="assigned-to">Assigned to:</label>
-  <input type="text" id="assigned-to" name="assigned-to" required
-    list="assigned-to-list">
-
-  <datalist id="assigned-to-list">
-    <option value="Izmael">
-    <option value="Brendan">
-    <option value="Charlie">
-  </datalist>
-
-  <label for="task-status">Status:</label>
-  <select id="task-status" name="task-status">
-    <option value="To-do">To-do</option>
-    <option value="In-progress">In-progress</option>
-    <option value="Review">Review</option>
-    <option value="done">Done</option>
-
-  
-  </select>
-  <button type="submit">Add Task</button>
-</form>
-</div>
-    <br>
-    <br>
-
-    <!-- TASK LAYOUT SECTION -->
-    <div style="padding-left:10px">
-    </div>            
-
-
-        
-   
-
-      <!-- SCRIPT TAG FOR BOOTSRAP'S JAVASCRIPT BUNDLE -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-      <!-- !! EASTER EGG TIME !!  If anyone (including Elias) finds this line, an amazing prize will be given... Brendan :)  See full T&Cs here: www.notarealcompany.com -->
-  
-  <!-- TASK LAYOUT SECTION -->
-  <div style="padding-left:10px">
-    <div class="row my-3">
-      <h1 class="col col-sm-5 m-auto text-center">Current Tasks</h1>
+      <a href="#search"><i class="fa fa-fw fa-search"></i> Search</a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+      <a
+        href="javascript:void(0);"
+        style="font-size: 15px"
+        class="icon"
+        onclick="myFunction()"
+        >&#9776;</a
+      >
+      <p id="navbar-logo">TaskPlanner✜</p>
     </div>
 
-    <!-- ROW 1 OF CARDS -->
-    <div class="row my-4">
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
+    <!-- ADD TASK FORM -->
+    <div class="container mt-5">
+      <div class="card task-form">
+        <div class="card-header">
+          <h3>Add Task</h3>
+        </div>
+        <div class="card-body">
+          <form id="task-form">
+            <div class="mb-3">
+              <label for="task-name" class="form-label">Task name:</label>
+              <input type="text" class="form-control" id="task-name" required />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description:</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="task-date" class="form-label">Due date:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="task-date"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="assigned-to" class="form-label">Assigned to:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="assigned-to"
+                  required
+                  list="assigned-to-list"
+                />
+                <datalist id="assigned-to-list">
+                  <option value="Izmael"></option>
+                  <option value="Brendan"></option>
+                  <option value="Charlie"></option>
+                </datalist>
               </div>
             </div>
-      </div>
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
-              </div>
+            <div class="mb-3">
+              <label for="task-status" class="form-label">Status:</label>
+              <select class="form-control" id="task-status" required>
+                <option value="Not started">Not started</option>
+                <option value="In progress">In progress</option>
+                <option value="Review">Review</option>
+              </select>
             </div>
+            <button type="submit" class="btn btn-primary mx-auto d-block">
+              Add
+            </button>
+          </form>
+        </div>
       </div>
     </div>
 
-    <!-- ROW 2 OF CARDS -->
-    <div class="row my-4">
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
-              </div>
-            </div>
-      </div>
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
-              </div>
-            </div>
-      </div>
+    <!-- TASK CARDS -->
+    <div class="container mt-5">
+      <div class="row" id="task-container"></div>
     </div>
 
-    <!-- ROW 3 OF CARDS -->
-    <div class="row my-4">
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
-              </div>
-            </div>
-      </div>
-      <div class="col col-xs-12 col-sm-6">
-          <div class="card m-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Task name</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Assigned to</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat nisi corrupti ducimus odit rem porro.</p>
-                <a href="#" class="card-link">Due date</a>
-                <a href="#" class="card-link">Status</a>
-              </div>
-            </div>
-      </div>
-  </div>
-
-   <!-- FOOTER ...[IS NOT WORKING PROPERLY YET: need standard icons, not boxed; justified right or centred...] -->
-    <!-- SOCIAL MEDIA ICONS BAR -->
-    <div class="row">
-        <footer class="col col-sm-6 d-flex">
-          <p id="copyright">&copy 2023 <strong>Not A Real Company, Inc.</strong></p>
-          <div class="socials ms-auto">
-              <div class="icon-bar">
-                  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
-                  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="google"><i class="fa fa-google"></i></a>
-                  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                </div>  
-          </div>
-        <!-- ORIGINAL CODE FOR FOOTER ...bits might be useful... ⊠ delete when app code is final :            
-        <footer class="col col-sm-6 offset-6 d-flex">
-          <p id="copyright">&copy 2023 <strong>Not A Real Company, Inc.</strong></p>
-          <div class="socials ms-auto">
-              <a href="#">[]</a>
-              <a href="#">[]</a>
-          </div>
-        </footer> 
-        -->
-        </footer>
-      </div>
-    </body>
+    <script src="script.js"></script>
+  </body>
 </html>
