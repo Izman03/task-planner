@@ -1,27 +1,63 @@
 // Task array to store tasks
-let tasks = [];
-
-// Function to save tasks to JSON
-function saveTasksToJSON() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// Function to retrieve tasks from JSON
-function retrieveTasksFromJSON() {
-  const tasksJSON = localStorage.getItem('tasks');
-  if (tasksJSON) {
-    tasks = JSON.parse(tasksJSON);
-  } else {
-    tasks = [];
-  }
-}
+const tasks = [];
 
 // Function to create a task card
 function createTaskCard(taskName, description, taskDate, assignedTo, taskStatus) {
   const card = document.createElement("div");
   card.classList.add("col", "col-md-6");
 
-  // ... rest of the code remains the same
+  const cardInner = document.createElement("div");
+  cardInner.classList.add("card");
+  cardInner.style.width = "100%";
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+
+  const title = document.createElement("h5");
+  title.classList.add("card-title");
+  title.textContent = taskName;
+
+  const subtitle1 = document.createElement("p");
+  subtitle1.classList.add("card-text", "text-muted");
+  subtitle1.textContent = "Description: " + description;
+
+  const subtitle2 = document.createElement("p");
+  subtitle2.classList.add("card-text", "text-muted");
+  subtitle2.textContent = "Assigned to: " + assignedTo;
+
+  const subtitle3 = document.createElement("p");
+  subtitle3.classList.add("card-text", "text-muted");
+  subtitle3.textContent = "Due date: " + taskDate;
+
+  const subtitle4 = document.createElement("p");
+  subtitle4.classList.add("card-text", "text-muted");
+  subtitle4.textContent = "Status: " + taskStatus;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("btn", "btn-danger");
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", function () {
+    // Remove the task card from the DOM
+    card.remove();
+
+    // Remove the task from the tasks array
+    const index = tasks.findIndex((task) => task.taskName === taskName);
+    if (index !== -1) {
+      tasks.splice(index, 1);
+    }
+  });
+
+  cardBody.appendChild(title);
+  cardBody.appendChild(subtitle1);
+  cardBody.appendChild(subtitle2);
+  cardBody.appendChild(subtitle3);
+  cardBody.appendChild(subtitle4);
+  cardBody.appendChild(deleteButton);
+
+  cardInner.appendChild(cardBody);
+  card.appendChild(cardInner);
+
+  return card;
 }
 
 // Function to add a new task
@@ -50,9 +86,6 @@ function addTask() {
 
   // Add task to the tasks array
   tasks.push(task);
-
-  // Save tasks to JSON
-  saveTasksToJSON();
 
   // Clear form inputs
   document.getElementById("task-name").value = "";
