@@ -43,7 +43,7 @@
 
 .topnav a:hover,
 .dropdown:hover .dropbtn {
-  background-color: lightgrey; /* Background color when hovering over navigation links or dropdown button */
+  background-color: lightskyblue; /* Background color when hovering over navigation links or dropdown button */
   color: white; /* Text color when hovering over navigation links or dropdown button */
 }
 
@@ -133,7 +133,11 @@
 
 /* General Styling */
 body {
-  background-color: #f8f9fa; /* Background color for the body */
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 200, 124) 0%,
+    rgb(252, 251, 121) 90%
+  );
   font-family: Arial, sans-serif; /* Font family for the body text */
   padding-top: 20px; /* Top padding for the body */
 }

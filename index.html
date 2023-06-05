@@ -49,18 +49,18 @@
 
     <!-- ADD TASK FORM -->
     <div class="container mt-5">
-      <div class="card">
+      <div class="card task-form">
         <div class="card-header">
           <h3>Add Task</h3>
         </div>
         <div class="card-body">
           <form id="task-form">
             <div class="mb-3">
-              <label for="task-name" class="form-label">Task name</label>
+              <label for="task-name" class="form-label">Task name:</label>
               <input type="text" class="form-control" id="task-name" required />
             </div>
             <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
+              <label for="description" class="form-label">Description:</label>
               <textarea
                 class="form-control"
                 id="description"
@@ -68,34 +68,43 @@
                 required
               ></textarea>
             </div>
-            <div class="mb-3">
-              <label for="task-date" class="form-label">Due date</label>
-              <input type="date" class="form-control" id="task-date" required />
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="task-date" class="form-label">Due date:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="task-date"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="assigned-to" class="form-label">Assigned to:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="assigned-to"
+                  required
+                  list="assigned-to-list"
+                />
+                <datalist id="assigned-to-list">
+                  <option value="Izmael"></option>
+                  <option value="Brendan"></option>
+                  <option value="Charlie"></option>
+                </datalist>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="assigned-to" class="form-label">Assigned to</label>
-              <input
-                type="text"
-                class="form-control"
-                id="assigned-to"
-                required
-                list="assigned-to-list"
-              />
-              <datalist id="assigned-to-list">
-                <option value="Izmael"></option>
-                <option value="Brendan"></option>
-                <option value="Charlie"></option>
-              </datalist>
-            </div>
-            <div class="mb-3">
-              <label for="task-status" class="form-label">Status</label>
+              <label for="task-status" class="form-label">Status:</label>
               <select class="form-control" id="task-status" required>
                 <option value="Not started">Not started</option>
                 <option value="In progress">In progress</option>
                 <option value="Review">Review</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary mx-auto d-block">
+              Add
+            </button>
           </form>
         </div>
       </div>
