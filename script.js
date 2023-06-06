@@ -15,10 +15,12 @@ class TaskPlanner {
 
   addTask(task) {
     this.tasks.push(task);
+    this.renderTasks();
   }
 
   deleteTask(index) {
     this.tasks.splice(index, 1);
+    this.renderTasks();
   }
 
   renderTasks() {
@@ -68,7 +70,6 @@ function addTask(event) {
   );
 
   taskPlanner.addTask(task);
-  taskPlanner.renderTasks();
 
   taskNameInput.value = "";
   descriptionInput.value = "";
