@@ -1,120 +1,81 @@
-// Task array to store tasks
-const tasks = [];
-
-// Function to create a task card
-function createTaskCard(taskName, description, taskDate, assignedTo, taskStatus) {
-  const card = document.createElement("div");
-  card.classList.add("col", "col-md-6");
-
-  const cardInner = document.createElement("div");
-  cardInner.classList.add("card");
-  cardInner.style.width = "100%";
-
-  const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body");
-
-  const title = document.createElement("h5");
-  title.classList.add("card-title");
-  title.textContent = taskName;
-
-  const subtitle1 = document.createElement("p");
-  subtitle1.classList.add("card-text", "text-muted");
-  subtitle1.textContent = "Description: " + description;
-
-  const subtitle2 = document.createElement("p");
-  subtitle2.classList.add("card-text", "text-muted");
-  subtitle2.textContent = "Assigned to: " + assignedTo;
-
-  const subtitle3 = document.createElement("p");
-  subtitle3.classList.add("card-text", "text-muted");
-  subtitle3.textContent = "Due date: " + taskDate;
-
-  const subtitle4 = document.createElement("p");
-  subtitle4.classList.add("card-text", "text-muted");
-  subtitle4.textContent = "Status: " + taskStatus;
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("btn", "btn-danger");
-  deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", function () {
-    // Remove the task card from the DOM
-    card.remove();
-
-    // Remove the task from the tasks array
-    const index = tasks.findIndex((task) => task.taskName === taskName);
-    if (index !== -1) {
-      tasks.splice(index, 1);
-    }
-  });
-
-  cardBody.appendChild(title);
-  cardBody.appendChild(subtitle1);
-  cardBody.appendChild(subtitle2);
-  cardBody.appendChild(subtitle3);
-  cardBody.appendChild(subtitle4);
-  cardBody.appendChild(deleteButton);
-
-  cardInner.appendChild(cardBody);
-  card.appendChild(cardInner);
-
-  return card;
+class Task {
+  constructor(taskName, description, taskDate, assignedTo, taskStatus) {
+    this.taskName = taskName;
+    this.description = description;
+    this.taskDate = taskDate;
+    this.assignedTo = assignedTo;
+    this.taskStatus = taskStatus;
+  }
 }
 
-// Function to add a new task
-function addTask() {
-  // Get task form inputs
-  const taskName = document.getElementById("task-name").value;
-  const description = document.getElementById("description").value;
-  const taskDate = document.getElementById("task-date").value;
-  const assignedTo = document.getElementById("assigned-to").value;
-  const taskStatus = document.getElementById("task-status").value;
-
-  // Check if all fields are filled
-  if (!taskName || !description || !taskDate || !assignedTo || !taskStatus) {
-    alert("Please fill in all fields");
-    return;
+class TaskPlanner {
+  constructor() {
+    this.tasks = [];
   }
 
-  // Create new task object
-  const task = {
-    taskName,
-    description,
-    taskDate,
-    assignedTo,
-    taskStatus,
-  };
+  addTask(task) {
+    this.tasks.push(task);
+  }
 
-  // Add task to the tasks array
-  tasks.push(task);
+  deleteTask(index) {
+    this.tasks.splice(index, 1);
+  }
 
-  // Clear form inputs
-  document.getElementById("task-name").value = "";
-  document.getElementById("description").value = "";
-  document.getElementById("task-date").value = "";
-  document.getElementById("assigned-to").value = "";
-  document.getElementById("task-status").value = "";
+  renderTasks() {
+    const taskContainer = document.getElementById("task-container");
+    taskContainer.innerHTML = "";
 
-  // Create and append task card
-  const taskContainer = document.getElementById("task-container");
-  const taskCard = createTaskCard(taskName, description, taskDate, assignedTo, taskStatus);
-  taskContainer.prepend(taskCard);
+    this.tasks.forEach((task, index) => {
+      const taskCard = document.createElement("div");
+      taskCard.classList.add("col-md-4");
+      taskCard.innerHTML = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${task.taskName}</h5>
+            <p class="card-text">${task.description}</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Due Date:</strong> ${task.taskDate}</li>
+              <li class="list-group-item"><strong>Assigned To:</strong> ${task.assignedTo}</li>
+              <li class="list-group-item"><strong>Status:</strong> ${task.taskStatus}</li>
+            </ul>
+            <button class="btn btn-danger" onclick="taskPlanner.deleteTask(${index})">Delete</button>
+          </div>
+        </div>
+      `;
+
+      taskContainer.appendChild(taskCard);
+    });
+  }
 }
 
-// Submit form event listener
-const taskForm = document.getElementById("task-form");
-taskForm.addEventListener("submit", function (event) {
+const taskPlanner = new TaskPlanner();
+
+function addTask(event) {
   event.preventDefault();
-  addTask();
-});
 
-// Function to initialize existing tasks
-function initializeTasks() {
-  const taskContainer = document.getElementById("task-container");
-  tasks.forEach((task) => {
-    const taskCard = createTaskCard(task.taskName, task.description, task.taskDate, task.assignedTo, task.taskStatus);
-    taskContainer.appendChild(taskCard);
-  });
+  const taskNameInput = document.getElementById("task-name");
+  const descriptionInput = document.getElementById("description");
+  const taskDateInput = document.getElementById("task-date");
+  const assignedToInput = document.getElementById("assigned-to");
+  const taskStatusInput = document.getElementById("task-status");
+
+  const task = new Task(
+    taskNameInput.value,
+    descriptionInput.value,
+    taskDateInput.value,
+    assignedToInput.value,
+    taskStatusInput.value
+  );
+
+  taskPlanner.addTask(task);
+  taskPlanner.renderTasks();
+
+  taskNameInput.value = "";
+  descriptionInput.value = "";
+  taskDateInput.value = "";
+  assignedToInput.value = "";
+  taskStatusInput.value = "To do";
 }
 
-// Initialize existing tasks
-initializeTasks();
+const taskForm = document.getElementById("task-form");
+taskForm.addEventListener("submit", addTask);
