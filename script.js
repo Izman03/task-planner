@@ -35,14 +35,14 @@ class TaskPlanner {
       taskCard.innerHTML = `
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">${task.taskName}</h5> // Display task name
-            <p class="card-text">${task.description}</p> // Display task description
+            <h5 class="card-title">${task.taskName}</h5>
+            <p class="card-text">${task.description}</p>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Due Date:</strong> ${task.taskDate}</li> // Display task due date
-              <li class="list-group-item"><strong>Assigned To:</strong> ${task.assignedTo}</li> // Display task assignee
-              <li class="list-group-item"><strong>Status:</strong> ${task.taskStatus}</li> // Display task status
+              <li class="list-group-item"><strong>Due Date:</strong> ${task.taskDate}</li>
+              <li class="list-group-item"><strong>Assigned To:</strong> ${task.assignedTo}</li>
+              <li class="list-group-item"><strong>Status:</strong> ${task.taskStatus}</li> 
             </ul>
-            <button class="btn btn-danger" onclick="taskPlanner.deleteTask(${index})">Delete</button> // Delete button with onclick event
+            <button class="btn btn-danger" onclick="taskPlanner.deleteTask(${index})">Delete</button>
           </div>
         </div>
       `;
