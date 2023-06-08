@@ -67,8 +67,8 @@ class TaskPlanner {
               <li class="list-group-item"><strong>Assigned To:</strong> ${task.assignedTo}</li>
               <li class="list-group-item"><strong>Status:</strong> ${task.taskStatus}</li>
             </ul>
-            <button class="btn btn-danger" onclick="taskPlanner.deleteTask(${index})">❌</button>
-            ${task.taskStatus !== 'Done' ? `<button class="btn btn-success task-complete-button" onclick="taskPlanner.toggleTaskComplete(${index})" style="outline: none;">✔️</button>` : ''}
+            <button class="btn btn-danger" onclick="taskPlanner.deleteTask(${index})">Delete Task</button>
+            ${task.taskStatus !== 'Done' ? `<button class="btn btn-success task-complete-button" onclick="taskPlanner.toggleTaskComplete(${index})" style="outline: none;">Task Done</button>` : ''}
           </div>
         </div>
       `;
